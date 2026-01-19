@@ -2,7 +2,7 @@
 
 ![iHBV Banner](images/iHBV_Trio_Caption.png)
 
-# HoneyBadger Vanguard 3.0 (iHBV)
+# HoneyBadger Vanguard 3.0™ (iHBV™)
 
 ### AI-Powered Active Defense for CyberShield 2026
 
@@ -18,7 +18,7 @@
 
 ## 🦡 About
 
-HoneyBadger Vanguard 3.0 is an **AI-powered active defense platform** designed to demonstrate cutting-edge offensive security capabilities at **CyberShield 2026** in Little Rock, Arkansas. Built on PowerShell-native automation, autonomous drone response, and real-time threat detection, iHBV represents the next evolution in proactive cybersecurity.
+HoneyBadger Vanguard 3.0™ (iHBV™) is an **AI-powered active defense platform** designed to demonstrate cutting-edge offensive security capabilities at **CyberShield 2026** in Little Rock, Arkansas. Built on PowerShell-native automation, autonomous drone response, and real-time threat detection, iHBV™ represents the next evolution in proactive cybersecurity.
 
 **Zero tolerance for threats. Zero compromise on capability.**
 
@@ -73,7 +73,7 @@ HoneyBadger Vanguard 3.0 is an **AI-powered active defense platform** designed t
 ## 🏗️ Architecture
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    iHBV Control Layer                        │
+│                    iHBV™ Control Layer                       │
 │                  (AI Decision Engine)                        │
 └─────────────────────────────────────────────────────────────┘
            │              │              │              │
@@ -165,7 +165,7 @@ cd ihbv.io
 4. **PowerShell Arsenal** - Live red team automation and EDR evasion
 5. **Multi-Agent AI** - Coordinated attack surface management
 
-### Booth Hours:
+### Booth Information:
 - **Conference Dates:** TBD 2026
 - **Location:** Little Rock Convention Center, Arkansas
 - **Contact:** honeybadger@ihbv.io
@@ -185,7 +185,7 @@ cd ihbv.io
 
 ## 🤝 Contributing
 
-HoneyBadger Vanguard 3.0 is primarily a research and demonstration platform. While the core codebase is private for OPSEC reasons, we welcome:
+HoneyBadger Vanguard 3.0™ is primarily a research and demonstration platform. While the core codebase is private for OPSEC reasons, we welcome:
 
 - Bug reports and vulnerability disclosures
 - Feature suggestions for CyberShield demos
@@ -226,6 +226,8 @@ Built for **CyberShield 2026** - Little Rock, Arkansas
 
 ### 🦡 UNSTOPPABLE. UNSEEN. UNMATCHED. 🦡
 
-**© 2026 HoneyBadger Security Research. All Rights Reserved.**
+**© 2026 HoneyBadger Vanguard, LLC. All Rights Reserved.**
+
+*iHBV™ and HoneyBadger Vanguard™ are trademarks of HoneyBadger Vanguard, LLC.*
 
 </div>
