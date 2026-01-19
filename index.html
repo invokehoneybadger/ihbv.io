@@ -1,10 +1,504 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HoneyBadger Vanguard 2.0</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHBV | HoneyBadger Vanguard 3.0 - AI-Powered Active Defense</title>
+    <meta name="description" content="HoneyBadger Vanguard 3.0 - AI-powered active defense system for CyberShield 2026. Autonomous threat detection, response, and elimination.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --hb-black: #0a0a0a;
+            --hb-dark: #1a1a1a;
+            --hb-cyan: #00d9ff;
+            --hb-blue: #0099ff;
+            --hb-purple: #9d00ff;
+            --hb-magenta: #ff00ff;
+            --hb-white: #f5f5f5;
+            --hb-gray: #808080;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--hb-black);
+            color: var(--hb-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--hb-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--hb-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(157, 0, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--hb-cyan);
+            border-radius: 50px;
+            color: var(--hb-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--hb-gray);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-blue) 100%);
+            color: var(--hb-black);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--hb-white);
+            border: 2px solid var(--hb-purple);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(157, 0, 255, 0.1);
+            border-color: var(--hb-magenta);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--hb-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--hb-dark);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--hb-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--hb-cyan);
+        }
+
+        .feature-card p {
+            color: var(--hb-gray);
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--hb-dark);
+            padding: 5rem 2rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--hb-gray);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--hb-cyan) 0%, var(--hb-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: var(--hb-gray);
+            margin-bottom: 3rem;
+        }
+
+        .email-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 2rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--hb-cyan);
+            border-radius: 8px;
+            color: var(--hb-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .email-link:hover {
+            background: rgba(0, 217, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--hb-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--hb-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--hb-cyan);
+        }
+
+        .copyright {
+            color: var(--hb-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                max-width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>HoneyBadger Vanguard 2.0</h1>
-    <p>CyberShield 2026 - Little Rock, Arkansas</p>
+    <header>
+        <nav>
+            <div class="logo">iHBV</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/iHBV_Trio_Caption.png" alt="HoneyBadger Vanguard - Unstoppable. Unseen. Unmatched." class="hero-image">
+            <div class="hero-badge">CYBERSHIELD 2026 • LITTLE ROCK, AR</div>
+            <h1>AI-Powered Active Defense</h1>
+            <p class="tagline">ZERO TOLERANCE FOR THREATS</p>
+            <div class="cta-buttons">
+                <a href="#features" class="btn btn-primary">Explore Capabilities</a>
+                <a href="https://github.com/invokehoneybadger" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Combat-Ready Capabilities</h2>
+            <p>Enterprise-grade security with an offensive edge</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Autonomous Threat Detection</h3>
+                <p>Real-time OSINT reconnaissance, vulnerability analysis, and threat intelligence powered by AI-driven decision making.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚁</div>
+                <h3>Drone Response System</h3>
+                <p>Autonomous aerial surveillance and response via M5Stack Fly drones with Byzantine fault-tolerant mesh networking.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <h3>RF Threat Triangulation</h3>
+                <p>Sub-meter accuracy threat detection using ESP32-based perimeter sensors with TDOA triangulation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚙</div>
+                <h3>Vehicle Integration</h3>
+                <p>KITT-style AI co-pilot for Jeep Wrangler with voice-activated operations and CAN bus telemetry integration.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>PowerShell-Native Arsenal</h3>
+                <p>40+ enterprise-grade PowerShell scripts for vulnerability management, payload generation, and EDR evasion.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Red Team Automation</h3>
+                <p>Multi-agent AI framework with MITRE ATT&CK mapping, campaign audit logging, and OPSEC monitoring.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">PowerShell Modules</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">384GB</div>
+                <div class="stat-label">AI Training RAM</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">&lt;1m</div>
+                <div class="stat-label">Threat Detection</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">HoneyBadger Attitude</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <h2>See It Live at CyberShield 2026</h2>
+        <p>Comprehensive demonstrations of autonomous threat detection, RF triangulation, vehicle integration, and AI-powered red team operations.</p>
+        <a href="mailto:honeybadger@ihbv.io" class="email-link">honeybadger@ihbv.io</a>
+        <div class="cta-buttons" style="margin-top: 2rem;">
+            <a href="https://invokehoneybadger.com" class="btn btn-primary">Learn More</a>
+            <a href="https://github.com/invokehoneybadger" class="btn btn-secondary">Explore Code</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://invokehoneybadger.com">InvokeHoneyBadger.com</a>
+                <a href="https://honeypi.io">HoneyPi.io</a>
+                <a href="https://github.com/invokehoneybadger">GitHub</a>
+                <a href="mailto:honeybadger@ihbv.io">Contact</a>
+            </div>
+            <p class="copyright">© 2026 HoneyBadger Security Research. Built for CyberShield 2026.</p>
+        </div>
+    </footer>
 </body>
 </html>
